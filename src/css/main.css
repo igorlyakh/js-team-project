@@ -1,2 +1,7 @@
 @import './normalize.min.css';
 @import './fonts.css';
+@import './header.css';
+@import './home.css';
+@import './modal.css';
+@import './shopping-list.css';
+@import './widget.css';
