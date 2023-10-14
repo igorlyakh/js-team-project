@@ -1,49 +1,21 @@
-.visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
-  }
-  .support {
+.support {
     width: 375px;
   }
+  
   .support__container {
-  
-  
     margin-left: auto;
     padding-top: 24px;
     padding-bottom: 20px;
     padding-left: 40px;
     padding-right: 40px;
-  
-    background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%
-    );
+    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
     box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
     border-radius: 16px;
-
-  
- 
-
-    @media screen and (min-width: 768px) {
-      width: 335px;
+  }
+  @media screen and (max-width: 374px) {
+    .support__container {
+      max-width: 335px;
     }
-   
-  
-    @media screen and (min-width: 1280px) {
-      margin: 0;
-      min-width: 335px;
-      max-width: 356px;
-    }
-  
   }
   
   .wrapper {
@@ -53,9 +25,7 @@
   }
   
   .support__title {
-    display: block;
     width: 205px;
-    margin: 0;
     font-family: "DM Sans";
     font-style: normal;
     font-weight: 700;
@@ -68,22 +38,16 @@
   .support__icon {
     fill: #ffffff;
   }
+  
   .swiper-container {
     height: 200px;
     overflow: hidden;
     margin-bottom: 32px;
-
-    @media screen and (min-width: 768px) {
-      height: 299px;
-      margin-bottom: 40px;
-    }
- 
   }
   
   .logoContainer {
     display: flex;
     flex-direction: column;
-  
     gap: 20px;
     transition: transform 0.7s cubic-bezier(0.08, 0.82, 0.15, 0.94);
   }
@@ -95,23 +59,22 @@
   }
   
   .logo__ite > img {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   
   .fundNumber {
     width: 14px;
-  
     font-family: "DM Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.3px;
-  
     align-items: flex-end;
     letter-spacing: -0.04em;
-  
     color: #ffffff;
   }
+  
   .logo__item {
     height: 32px;
   }
@@ -128,25 +91,14 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    border: none;
     width: 38px;
     height: 38px;
-  
     border-radius: 50%;
-  
     cursor: pointer;
-    /* // transition(background-color); */
-  
-  
   }
-  .swiper-button-next:hover,
-  .swiper-button-next:focus{
+  .swiper-button-next:hover, .swiper-button-next:focus {
     background-color: #eac645;
   }
-  /* .fund-item p,
-  .fund-item .logo__img {
-    /* // @include transition(filter); */
-  /* } */ 
   
   .fund-item:hover p,
   .fund-item:focus p,
@@ -157,17 +109,9 @@
   
   .swiper-button-next__icon {
     fill: #4f2ee8;
-  
     transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   
   .support__container.shopping__charity.charity {
     display: none;
-
-    @media screen and (min-width: 1280px) {
-      width: 356px;
-      display: block;
-      height: 490px;
-    }
-  }
-  
+  }/*# sourceMappingURL=index.css.map */
