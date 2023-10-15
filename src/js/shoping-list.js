@@ -1,9 +1,9 @@
 const shoppingBooks = document.querySelector('.shoplist-list');
 const shopListInside = document.querySelector('.shoplist-inside');
 
-const data_key = 'users-book';
+const DATA_KEY = 'users-book';
 
-const localData = JSON.parse(localStorage.getItem(data_key));
+const localData = JSON.parse(localStorage.getItem(DATA_KEY));
 
 function createShoppingList(lists) {
     const markupList = lists.map(
@@ -62,7 +62,7 @@ function deletedShoppingList(event) {
 
     if (indexToDelete !== -1) {
         localData.splice(indexToDelete, 1);
-        localStorage.setItem(data_key, JSON.stringify(localData));
+        localStorage.setItem(DATA_KEY, JSON.stringify(localData));
         createShoppingList(localData);
     } else {
         console.error('Книга не знайдена');
