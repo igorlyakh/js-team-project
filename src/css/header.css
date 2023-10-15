@@ -147,9 +147,15 @@ ul {
     margin-right: 16px;
     cursor: pointer;
   }
+  .header__button:hover {
+    color: #4f2ee8;
+  }
   .header__button_shopping {
     display: flex;
     align-items: center;
+  }
+  .header__button_shopping:hover {
+    color: #4f2ee8;
   }
 
   .header__button_shopping::after {
