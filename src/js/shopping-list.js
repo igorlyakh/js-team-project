@@ -10,7 +10,7 @@ function createShoppingList(lists) {
         ({ book_image, title, title_name, description, author, buy_link, buy_links, _id }) => {
             return `<li class="shopingList-item" data-id="${_id}">
                 <button type="button" class="deleted-button">
-                    <svg class="deleted-button-icon" width="16" height="16">
+                    <svg class="deleted-button-icon#shop-list-delete" width="16" height="16">
                         <use href="./"></use>
                     </svg>
                 </button> 
