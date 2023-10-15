@@ -2,7 +2,7 @@ const charityFunds = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: '../img/SupportUkraine/01-found-1.png',
+    img: './img/SupportUkraine/01-found-1.png',
     img2: './img/SupportUkraine/01-found-2.png',
     width: 154,
     height: 32,
