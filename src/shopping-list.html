@@ -1,9 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping list</title>
-  </head>
-  <body></body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookshelf</title>
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body>
+
+
+  <load = "./partials/header.html" />
+
+   <main>
+    <div class = "stoped-listpage container">
+
+
+      <div class="supportUkraineShopList">
+        <load="./partials/widget.html" />
+      </div>
+
+
+        <section class = "shopping-lists">
+
+            <h1 class = "shoplist-title">Shopping <span>List</span></h1>
+
+            <div class = "shoplist-inside">
+                <p class = "shoplist-inside-text">This page is empty, add some books and proceed to order.</p>
+                
+                <picture class = "shoplist-inside-picture">
+
+                    <source srcset="./ 1x, ./ 2x" media="(min-width: 1440px)" />
+
+                    <source srcset="./ 1x, ./ 2x" media="(min-width: 768px)" />
+
+                    <source srcset="./ 1x, ./ 2x" media="(max-width: 767px)" />
+
+                    <img class = "shoplist-inside-img" src = "./" alt = "books" />
+
+                </picture>
+            </div>
+            
+            <ul class = "shoplist-list"> </ul>
+
+        </section>
+    </div>
+   </main>
+
+</body>
 </html>
