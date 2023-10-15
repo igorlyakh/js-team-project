@@ -7,8 +7,8 @@ const localData = JSON.parse(localStorage.getItem(data_key));
 
 function createShoppingList(lists) {
     const markupList = lists.map(
-        ({ book_image, title, title_name, description, author, buy_link, buy_links, id }) => {
-            return `<li class="shopingList-item" data-id="${id}">
+        ({ book_image, title, title_name, description, author, buy_link, buy_links, _id }) => {
+            return `<li class="shopingList-item" data-id="${_id}">
                 <button type="button" class="deleted-button">
                     <svg class="deleted-button-icon" width="16" height="16">
                         <use href="./"></use>
@@ -42,25 +42,30 @@ function createShoppingList(lists) {
         shopListInside.hidden = true;
         shoppingBooks.innerHTML = markupList;
 
+      
         const deleteButtons = document.querySelectorAll('.deleted-button');
 
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', onDelete);
+        deleteButtons.forEach(btn => {
+            btn.addEventListener('click', deletedShoppingList);
         });
     } else {
         shopListInside.hidden = false;
-        shoppingBooks.innerHTML = "";
+        shoppingBooks.innerHTML = "  ";
     }
 }
 
 createShoppingList(localData);
 
-function onDelete(evt) {
-    const bookId = evt.target.closest('.shopingList-item').dataset.id;
-    const bookToRemoveId = localData.findIndex(book => book._id === bookId);
-    if (bookToRemoveId !== -1) {
-        localData.splice(bookToRemoveId, 1);
+function deletedShoppingList(event) {
+    const bookId = event.target.closest('.shopingList-item').dataset.id;
+    const indexToDelete = localData.findIndex(book => book._id === bookId);
+
+    if (indexToDelete !== -1) {
+        localData.splice(indexToDelete, 1);
         localStorage.setItem(data_key, JSON.stringify(localData));
         createShoppingList(localData);
+    } else {
+        console.error('Книга не знайдена');
     }
 }
+
