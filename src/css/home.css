@@ -121,13 +121,14 @@ li {
   .books-list-tab-desk {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    row-gap: 40px;
+    column-gap: 25px;
     padding: 0 0 20px;
   }
 }
 @media screen and (min-width: 1280px) {
   .books-list-tab-desk {
-    gap: 24px;
+    column-gap: 24px;
     padding-bottom: 32px;
   }
 }
@@ -161,23 +162,9 @@ li {
 
 .book-image {
   display: block;
-  width: 335px;
-  height: 485px;
   max-width: 100%;
   border-radius: 8px;
   margin-bottom: 14px;
-}
-@media screen and (min-width: 768px) {
-  .book-image {
-    width: 218px;
-    height: 316px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .book-image {
-    width: 180px;
-    height: 256px;
-  }
 }
 
 .book-name {
