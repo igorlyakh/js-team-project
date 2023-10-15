@@ -22,7 +22,9 @@ async function getCategoryList() {
       'beforeend',
       createCategoryListMarkup(data)
     );
-
+    for (const child of categoryList.children) {
+        child.removeAttribute('style');
+      }
     selectedStyle(allCategories);
   } catch (err) {
     console.log('TRY-CATCH:', err);

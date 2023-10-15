@@ -53,21 +53,14 @@ li {
 }
 
 .category-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
   padding: 0 20px 0 0;
   margin: 0;
-}
-@media screen and (min-width: 768px) {
-  .category-list {
-    gap: 32px;
-  }
 }
 
 .category {
   color: rgba(17, 17, 17, 0.6);
+  cursor: pointer;
+  padding: 12px 0;
 }
 .category:hover,
 :focus {
@@ -77,6 +70,7 @@ li {
 }
 @media screen and (min-width: 768px) {
   .category {
+    padding: 16px 0;
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.36px;
