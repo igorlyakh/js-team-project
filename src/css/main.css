@@ -6,6 +6,10 @@
 @import './shopping-list.css';
 @import './widget.css';
 
+body {
+  font-family: DM Sans;
+}
+
 .container {
   width: 287px;
   margin: 0 auto;
