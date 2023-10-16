@@ -3,7 +3,12 @@ const header = document.querySelector('.header');
 const border = document.querySelector('.border');
 const body = document.querySelector('body');
 const savedTheme = localStorage.getItem('theme');
+const logo = document.querySelector('.logo-text');
+const openIcon = document.querySelector('.burger');
+const closeIcon = document.querySelector('.close');
+const block = document.querySelector('.shop-block');
 
+const categoryList = document.querySelectorAll('.category');
 // ===============Theme==================
 if (savedTheme) {
   themeSwitch.checked = savedTheme === 'dark';
@@ -20,6 +25,18 @@ function updateTheme() {
     body.style.backgroundColor = '#202024';
     body.style.color = '#FFFFFF';
     localStorage.setItem('theme', 'dark');
+    logo.style.fill = '#F3F3F3';
+    block.style.stroke = '#FFFFFF';
+    openIcon.style.stroke = '#FFFFFF';
+    closeIcon.style.stroke = '#FFFFFF';
+    categoryList.forEach(function (element) {
+      const color = window.getComputedStyle(element).getPropertyValue('color');
+      if (color === '#4f2ee8') {
+        element.style.color = '#EAC645';
+      } else {
+        element.style.color = 'rgba(255, 255, 255, 0.60)';
+      }
+    });
   } else {
     border.style.border = '2px solid black';
     border.style.borderRadius = '0 0 15px 15px';
@@ -29,6 +46,18 @@ function updateTheme() {
     body.style.backgroundColor = '#F6F6F6';
     body.style.color = '#111111';
     localStorage.setItem('theme', 'light');
+    logo.style.fill = '#000';
+    block.style.stroke = '#111111';
+    openIcon.style.stroke = '#111111';
+    closeIcon.style.stroke = '#111111';
+    categoryList.forEach(function (element) {
+      const color = window.getComputedStyle(element).getPropertyValue('color');
+      if (color === '#EAC645') {
+        element.style.color = '#4f2ee8';
+      } else {
+        element.style.color = 'rgba(17, 17, 17, 0.60)';
+      }
+    });
   }
 }
 
@@ -39,22 +68,25 @@ updateTheme();
 // ===============Mobile menu==================
 
 const burger = document.querySelector('.mobile-menu-button');
+const closeButton = document.querySelector('.mobile-menu-button-close');
+
 const modal = document.querySelector('.header-modal');
 
 burger.addEventListener('click', () => {
-  if (burger.textContent === 'B') {
-    modal.style.display = 'block';
-    burger.innerHTML = 'x';
-  } else {
-    modal.style.display = 'none';
-    burger.innerHTML = 'B';
-  }
+  burger.style.display = 'none';
+  closeButton.style.display = 'flex';
+  modal.style.display = 'block';
 });
 
+closeButton.addEventListener('click', () => {
+  closeButton.style.display = 'none';
+  burger.style.display = 'flex';
+  modal.style.display = 'none';
+});
 // ===============Active href==================
 
 const links = document.querySelectorAll('ul a');
-
+console.log(links);
 links.forEach(function (link) {
   const linkPath = link.getAttribute('href');
   const currentPage = window.location.pathname;
