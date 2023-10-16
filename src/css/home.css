@@ -13,6 +13,12 @@ li {
   list-style: none;
 }
 
+@media screen and (min-width: 1280px) {
+  .home {
+    display: flex;
+    gap: 40px;
+  }
+}
 /* Sidebar */
 .home-categories {
   height: 228px;
@@ -45,12 +51,6 @@ li {
     min-width: 356px;
   }
 }
-@media screen and (min-width: 1280px) {
-  .home {
-    display: flex;
-    gap: 40px;
-  }
-}
 
 .category-list {
   padding: 0 20px 0 0;
@@ -58,7 +58,7 @@ li {
 }
 
 .category {
-  color: rgba(17, 17, 17, 0.6);
+  color: #b4afaf;
   cursor: pointer;
   padding: 12px 0;
 }
@@ -79,6 +79,12 @@ li {
   :focus {
     font-size: 18px;
   }
+}
+.category-black:hover,
+:focus {
+  color: #EAC645;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 /* Best sellers */
