@@ -6,6 +6,7 @@ const DATA_KEY = 'users-book';
 const localData = JSON.parse(localStorage.getItem(DATA_KEY));
 
 function createShoppingList(lists) {
+  if (lists === null) return;
   const markupList = lists
     .map(
       ({
