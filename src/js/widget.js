@@ -10,17 +10,33 @@ const charityFunds = [
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img: './images/SupportUkraine/02-found-1.png',
+
+     img: './images/SupportUkraine/02-found-1.png',
     img2: './images/SupportUkraine/02-found-2.png',
     width: 62,
+  },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: '../img/SupportUkraine/03-found-1.png',
+    img2: '../img/SupportUkraine/03-found-2.png',
+    width: 219,
     height: 32,
   },
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    img: './images/SupportUkraine/04-found-1.png',
+
+     img: './images/SupportUkraine/04-found-1.png',
     img2: './images/SupportUkraine/04-found-2.png',
     width: 101,
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: '../img/SupportUkraine/05-found-1.png',
+    img2: '../img/SupportUkraine/05-found-2.png',
+    width: 76,
     height: 32,
   },
   {
@@ -29,14 +45,23 @@ const charityFunds = [
     img: './images/SupportUkraine/06-found-1.png',
     img2: './images/SupportUkraine/06-found-2.png',
     width: 82,
+
     height: 32,
   },
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: './images/SupportUkraine/07-found-1.png',
+
+     img: './images/SupportUkraine/07-found-1.png',
     img2: './images/SupportUkraine/07-found-2.png',
     width: 55,
+  },
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    img: '../img/SupportUkraine/08-found-1.png',
+    img2: '../img/SupportUkraine/08-found-2.png',
+    width: 106,
     height: 32,
   },
   {

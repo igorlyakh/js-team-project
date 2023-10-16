@@ -19,7 +19,5 @@
     "notiflix": "^3.2.6",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
-  },
-  "description": "Этот проект был создан при помощи Vite. Для знакомства и настройки\r дополнительных возможностей [обратись к документации](https://vitejs.dev/).",
-  "main": "vite.config.js"
+  }
 }
