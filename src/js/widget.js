@@ -2,18 +2,18 @@ const charityFunds = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: '../img/SupportUkraine/01-found-1.png',
-    img2: '../img/SupportUkraine/01-found-2.png',
-    width: 154,
+    img: '../images/SupportUkraine/01-found-1.png',
+    img2: './images/SupportUkraine/01-found-2.png',
+    width: 131,
     height: 32,
   },
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img: '../img/SupportUkraine/02-found-1.png',
-    img2: '../img/SupportUkraine/02-found-2.png',
-    width: 71,
-    height: 32,
+
+     img: './images/SupportUkraine/02-found-1.png',
+    img2: './images/SupportUkraine/02-found-2.png',
+    width: 62,
   },
   {
     title: 'UNITED24',
@@ -26,10 +26,10 @@ const charityFunds = [
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    img: '../img/SupportUkraine/04-found-1.png',
-    img2: '../img/SupportUkraine/04-found-2.png',
-    width: 136,
-    height: 32,
+
+     img: './images/SupportUkraine/04-found-1.png',
+    img2: './images/SupportUkraine/04-found-2.png',
+    width: 101,
   },
   {
     title: 'Medicins Sans Frontieres',
@@ -42,18 +42,19 @@ const charityFunds = [
   {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
-    img: '../img/SupportUkraine/06-found-1.png',
-    img2: '../img/SupportUkraine/06-found-2.png',
-    width: 96,
+    img: './images/SupportUkraine/06-found-1.png',
+    img2: './images/SupportUkraine/06-found-2.png',
+    width: 82,
+
     height: 32,
   },
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: '../img/SupportUkraine/07-found-1.png',
-    img2: '../img/SupportUkraine/07-found-2.png',
-    width: 57,
-    height: 32,
+
+     img: './images/SupportUkraine/07-found-1.png',
+    img2: './images/SupportUkraine/07-found-2.png',
+    width: 55,
   },
   {
     title: 'World vision',
@@ -66,9 +67,34 @@ const charityFunds = [
   {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
-    img: '../img/SupportUkraine/09-found-1.png',
-    img2: '../img/SupportUkraine/09-found-2.png',
-    width: 180,
+    img: './images/SupportUkraine/09-found-1.png',
+    img2: './images/SupportUkraine/09-found-2.png',
+    width: 115,
+    height: 32,
+  },
+
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: './images/SupportUkraine/05-found-1.png',
+    img2: './images/SupportUkraine/05-found-2.png',
+    width: 102,
+    height: 32,
+  },
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    img: './images/SupportUkraine/08-found-1.png',
+    img2: './images/SupportUkraine/08-found-2.png',
+    width: 81,
+    height: 32,
+  },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: './images/SupportUkraine/03-found-1.png',
+    img2: './images/SupportUkraine/03-found-2.png',
+    width: 114,
     height: 32,
   },
 ];
