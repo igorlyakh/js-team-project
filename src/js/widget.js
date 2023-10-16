@@ -96,7 +96,7 @@ function renderLogos() {
 
 renderLogos();
 
-// slider-----------------------------------------------------------------
+// slider---------------------------------------------------------------
 
 const swiperOverflowContainerEl = document.querySelector('.swiper-container');
 const logosContainerEl = document.querySelector('.logoContainer');
@@ -114,7 +114,7 @@ let numberOfClicks = Math.ceil(
     scrolledDistance
 );
 
-// console.log(numberOfClicks);
+
 
 btnDownEl.addEventListener('click', onMoveDownClick);
 
