@@ -7,6 +7,7 @@ const logo = document.querySelector('.logo-text');
 const openIcon = document.querySelector('.burger');
 const closeIcon = document.querySelector('.close');
 const block = document.querySelector('.shop-block');
+const moreButton = document.querySelectorAll('.see-more-btn');
 
 const categoryList = document.querySelectorAll('.category');
 // ===============Theme==================
@@ -37,6 +38,9 @@ function updateTheme() {
         element.style.color = 'rgba(255, 255, 255, 0.60)';
       }
     });
+    for (const button of moreButton) {
+      button.style.color = '#FFF';
+    }
   } else {
     border.style.border = '2px solid black';
     border.style.borderRadius = '0 0 15px 15px';
@@ -58,6 +62,9 @@ function updateTheme() {
         element.style.color = 'rgba(17, 17, 17, 0.60)';
       }
     });
+    for (const button of moreButton) {
+      button.style.color = '#111';
+    }
   }
 }
 
@@ -72,21 +79,32 @@ const closeButton = document.querySelector('.mobile-menu-button-close');
 
 const modal = document.querySelector('.header-modal');
 
-burger.addEventListener('click', () => {
-  burger.style.display = 'none';
-  closeButton.style.display = 'flex';
-  modal.style.display = 'block';
-});
+function checkScreenWidth() {
+  if (window.innerWidth <= 768) {
+    burger.style.display = 'flex';
+    burger.addEventListener('click', () => {
+      burger.style.display = 'none';
+      closeButton.style.display = 'flex';
+      modal.style.display = 'block';
+    });
 
-closeButton.addEventListener('click', () => {
-  closeButton.style.display = 'none';
-  burger.style.display = 'flex';
-  modal.style.display = 'none';
-});
+    closeButton.addEventListener('click', () => {
+      closeButton.style.display = 'none';
+      burger.style.display = 'flex';
+      modal.style.display = 'none';
+    });
+  } else {
+    modal.style.display = 'none';
+    closeButton.style.display = 'none';
+    burger.style.display = 'none';
+  }
+}
+window.addEventListener('load', checkScreenWidth);
+window.addEventListener('resize', checkScreenWidth);
+
 // ===============Active href==================
 
 const links = document.querySelectorAll('ul a');
-console.log(links);
 links.forEach(function (link) {
   const linkPath = link.getAttribute('href');
   const currentPage = window.location.pathname;
