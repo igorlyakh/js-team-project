@@ -1,3 +1,6 @@
+.border {
+  margin-bottom: 40px;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -142,10 +145,10 @@ ul {
   position: relative;
   top: 40%;
 }
-.modal__button.active{
+.modal__button.active {
   color: #111;
 }
-.modal__button_shopping.active{
+.modal__button_shopping.active {
   color: #111;
 }
 .active {

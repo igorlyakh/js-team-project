@@ -9,7 +9,21 @@ const closeIcon = document.querySelector('.close');
 const block = document.querySelector('.shop-block');
 const moreButton = document.querySelectorAll('.see-more-btn');
 
+const path = window.location.href.split('/');
+
 const categoryList = document.querySelectorAll('.category');
+
+const homePage = document.querySelector('.modal__button');
+const shoppingPage = document.querySelector('.modal__button_shopping');
+
+if (path[path.length - 1] === 'shopping-list') {
+  shoppingPage.classList.add('active');
+  homePage.classList.remove('active');
+} else {
+  shoppingPage.classList.remove('active');
+  homePage.classList.add('active');
+}
+
 // ===============Theme==================
 if (savedTheme) {
   themeSwitch.checked = savedTheme === 'dark';
@@ -101,14 +115,3 @@ function checkScreenWidth() {
 }
 window.addEventListener('load', checkScreenWidth);
 window.addEventListener('resize', checkScreenWidth);
-
-// ===============Active href==================
-
-const links = document.querySelectorAll('ul a');
-links.forEach(function (link) {
-  const linkPath = link.getAttribute('href');
-  const currentPage = window.location.pathname;
-  if (linkPath === currentPage) {
-    link.classList.add('active');
-  }
-});
