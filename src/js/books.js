@@ -1,7 +1,9 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-if (window.location.pathname === '/') {
+const path = window.location.href.split('/');
+
+if (path[path.length - 1] === '') {
   const categoryList = document.querySelector('.category-list');
   const allCategories = document.getElementById('all-categories');
   const bestSellers = document.querySelector('.best-sellers');
