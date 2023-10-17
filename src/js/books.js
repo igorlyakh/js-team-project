@@ -25,10 +25,18 @@ if (path[path.length - 1] === '') {
         'beforeend',
         createCategoryListMarkup(data)
       );
+
+      const theme = localStorage.getItem('theme');
       for (const child of categoryList.children) {
         child.removeAttribute('style');
+        if (theme === 'dark') {
+          child.classList.add('category-black');
+        }
+        selectedStyle(allCategories);
+        if (theme === 'dark') {
+          selectedStyleBlack(allCategories);
+        }
       }
-      selectedStyle(allCategories);
     } catch (err) {
       console.log('TRY-CATCH:', err);
       Notiflix.Notify.failure('This page is empty, please try again');
@@ -52,6 +60,10 @@ if (path[path.length - 1] === '') {
       for (const child of bestSellersList.children) {
         const btn = child.lastElementChild;
         btn.addEventListener('click', getBooksListByBtn);
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          btn.style.backgroundColor = '#202024';
+        }
       }
     } catch (err) {
       console.log('TRY-CATCH:', err);
@@ -71,6 +83,11 @@ if (path[path.length - 1] === '') {
       }
       const category = event.target;
       selectedStyle(category);
+
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        selectedStyleBlack(category);
+      }
 
       const { data } = await axios.get(
         `${URL}/books/category?category=${category.textContent}`
@@ -111,6 +128,10 @@ if (path[path.length - 1] === '') {
         category.removeAttribute('style');
         if (category.textContent.trim() === currentCategory.trim()) {
           selectedStyle(category);
+          const theme = localStorage.getItem('theme');
+          if (theme === 'dark') {
+            selectedStyleBlack(category);
+          }
         }
       }
 
@@ -269,6 +290,11 @@ if (path[path.length - 1] === '') {
   // Function for style of selected category
   function selectedStyle(categoryName) {
     return (categoryName.style.cssText = `color: #4f2ee8;
+   text-transform: uppercase;
+   font-weight: 700;`);
+  }
+  function selectedStyleBlack(categoryName) {
+    return (categoryName.style.cssText = `color: #EAC645;
    text-transform: uppercase;
    font-weight: 700;`);
   }
