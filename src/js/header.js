@@ -9,20 +9,7 @@ const closeIcon = document.querySelector('.close');
 const block = document.querySelector('.shop-block');
 const moreButton = document.querySelectorAll('.see-more-btn');
 
-const path = window.location.href.split('/');
-
 const categoryList = document.querySelectorAll('.category');
-
-const homePage = document.querySelector('.modal__button');
-const shoppingPage = document.querySelector('.modal__button_shopping');
-
-if (path[path.length - 1] === 'shopping-list') {
-  shoppingPage.classList.add('active');
-  homePage.classList.remove('active');
-} else {
-  shoppingPage.classList.remove('active');
-  homePage.classList.add('active');
-}
 
 // ===============Theme==================
 if (savedTheme) {
@@ -115,3 +102,25 @@ function checkScreenWidth() {
 }
 window.addEventListener('load', checkScreenWidth);
 window.addEventListener('resize', checkScreenWidth);
+
+const links = document.querySelectorAll('ul a');
+const listHeader = document.querySelector('.header__button_shopping');
+const listModal = document.querySelector('.modal__button_shopping');
+
+const index = document.querySelector('.header__button');
+const indexModal = document.querySelector('.modal__button');
+links.forEach(function (link) {
+  const linkPath = link.getAttribute('href');
+  const currentPage = window.location.href;
+  if (currentPage.indexOf('list') !== -1) {
+    listHeader.classList.add('active');
+    listModal.classList.add('active');
+    index.classList.remove('.active');
+    indexModal.classList.remove('.active');
+  } else {
+    listHeader.classList.remove('active');
+    listModal.classList.remove('active');
+    index.classList.add('.active');
+    indexModal.classList.add('.active');
+  }
+});
