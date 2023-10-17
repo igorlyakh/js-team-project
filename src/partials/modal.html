@@ -1,4 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookshelf</title>
+  <link rel="stylesheet" href="/src/css/modal.css" />
+  <script type="module" src="/src/js/modal.js"></script>
+</head>
+
+<body>
+  <main>
 <div class="modal-backdrop" data-modal-windows>
   <div class="modal">
     <div class="flex-modal">
@@ -9,11 +22,12 @@
       </button>
 
       <div class="modal-texts">
-
+      <div class="modal-content"></div>
       </div>
 
       <button type="button" class="add-to-list">
         <p class="textAdd">Add to shopping list</p>
+        <p class="remove-local" hidden>remove from the shopping list</p>
 
       </button>
 
@@ -26,3 +40,7 @@
     </div>
   </div>
 </div>
+
+</main>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-const URL = 'https://books-backend.p.goit.global/books/';
+const URL = 'https://www.example.com/api/books/';
 
 async function getInformationById(id) {
   try {
@@ -17,11 +17,15 @@ async function getInformationById(id) {
   }
 }
 
+
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const modalTexts = document.querySelector('.modal-texts');
 const addToListButton = document.querySelector('.add-to-list');
 const textAdd = document.querySelector('.textAdd');
 const textAfterBuy = document.querySelector('.textBuy');
+const removeLocal = document.querySelector('.remove-local');
+const removeBtn = document.querySelector('.closeBtn');
+
 
 
 const KEY_NAME = 'shopping-list';
@@ -40,22 +44,26 @@ function closeModal() {
   document.removeEventListener('keydown', onKeydown);
 }
 
-function shoppingButton() { 
+function shoppingButton() {
   if (openBookObj) {
     if (!shoppingListArr.some((obj) => obj._id === openBookObj._id)) {
       shoppingListArr.push(openBookObj);
       localStorage.setItem(KEY_NAME, JSON.stringify(shoppingListArr));
+      addToListButton.innerText = "Remove from shopping list"; // Змінюємо текст кнопки
     } else {
       const index = shoppingListArr.findIndex((obj) => obj._id === openBookObj._id);
       shoppingListArr.splice(index, 1);
       localStorage.setItem(KEY_NAME, JSON.stringify(shoppingListArr));
+      addToListButton.innerText = "Add to shopping list"; // Змінюємо текст кнопки
     }
-    updateShoppingButtonState(); 
+    updateShoppingButtonState();
   }
 }
 
+
 function openModal() {
-  modalBackdrop.style.display = 'block';
+  const modalContent = document.querySelector('.modal-content');
+  modalContent.innerHTML = createModalMarkup(openBookObj);
   modalTexts.style.opacity = 1;
   window.addEventListener('click', outsideClick);
   document.addEventListener('keydown', onKeydown);
@@ -68,7 +76,7 @@ function onKeydown(event) {
 }
 
 function outsideClick(event) {
-  if (event.target === modalBackdrop) {
+  if (removeBtn.contains(event.target)) {
     closeModal();
   }
 }
@@ -76,14 +84,17 @@ function outsideClick(event) {
 function updateShoppingButtonState() {
   if (openBookObj) {
     if (shoppingListArr.some((obj) => obj._id === openBookObj._id)) {
+      addToListButton.innerText = "Remove from shopping list";
       addToListButton.hidden = true;
       textAfterBuy.hidden = false;
     } else {
+      addToListButton.innerText = "Add to shopping list";
       addToListButton.hidden = false;
       textAfterBuy.hidden = true;
     }
   }
 }
+
 
 async function getDataBook(id) {
   openBookObj = null;
@@ -92,7 +103,7 @@ async function getDataBook(id) {
     if (openBookObj) {
       updateShoppingButtonState();
       createModalMarkup(openBookObj);
-      openModal(); 
+      openModal();
     }
   } catch (error) {
     console.error(error);
