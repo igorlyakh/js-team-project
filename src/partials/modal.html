@@ -1,26 +1,28 @@
-<div data-modal-backdrop class="modal-backdrop is-hidden"></div>
-<div class="modal">
-  <div class="flex-modal">
-    <span class="close-modal" title="Close">&times;</span>
-    <div class="img">
-      <img class="book-cover" src="book-cover.jpg" alt="Book Cover" />
-    </div>
-    <div class="modal-texts">
-      <h2 class="book-title">Book Title</h2>
-      <p class="book-author">Author</p>
-      <p class="book-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, magni
-        repellat nemo perferendis nulla
-      </p>
-      <div class="marketplaces">
-        <a href="marketplace1.com" target="_blank"
-          ><img src="marketplace1-logo.png" alt="Marketplace 1"
-        /></a>
-        <a href="marketplace2.com" target="_blank"
-          ><img src="marketplace2-logo.png" alt="Marketplace 2"
-        /></a>
+
+<div class="modal-backdrop" data-modal-windows>
+  <div class="modal">
+    <div class="flex-modal">
+      <button class="closeBtn" type="button">
+        <svg width="24" height="24" class="button-close" data-modal-close>
+          <use href="./"></use>
+        </svg>
+      </button>
+
+      <div class="modal-texts">
+
+      </div>
+
+      <button type="button" class="add-to-list">
+        <p class="textAdd">Add to shopping list</p>
+
+      </button>
+
+      <div class="textButtonOn">
+        <p class="textBuy" hidden>
+          Congratulations! You have added the book to the shopping list. To
+          delete, press the button "Remove from the shopping list".
+        </p>
       </div>
     </div>
   </div>
-  <button class="add-to-list">Add to Shopping List</button>
 </div>
