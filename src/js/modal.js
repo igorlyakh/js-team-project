@@ -22,11 +22,10 @@ const modalTexts = document.querySelector('.modal-texts');
 const addToListButton = document.querySelector('.add-to-list');
 const textAdd = document.querySelector('.textAdd');
 const textAfterBuy = document.querySelector('.textBuy');
-const modalWrapper = document.querySelector('.modal-markup');
+
 
 const KEY_NAME = 'shopping-list';
 let shoppingListArr = [];
-let openBookObj = null;
 
 modalBackdrop.addEventListener('click', closeModal);
 addToListButton.addEventListener('click', shoppingButton);
@@ -41,7 +40,7 @@ function closeModal() {
   document.removeEventListener('keydown', onKeydown);
 }
 
-function shoppingButton() {
+function shoppingButton() { 
   if (openBookObj) {
     if (!shoppingListArr.some((obj) => obj._id === openBookObj._id)) {
       shoppingListArr.push(openBookObj);
@@ -51,7 +50,7 @@ function shoppingButton() {
       shoppingListArr.splice(index, 1);
       localStorage.setItem(KEY_NAME, JSON.stringify(shoppingListArr));
     }
-    updateShoppingButtonState();
+    updateShoppingButtonState(); 
   }
 }
 
@@ -152,4 +151,3 @@ function createModalMarkup({
     </div>
   `;
 }
-
