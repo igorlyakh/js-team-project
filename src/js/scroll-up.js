@@ -1,18 +1,38 @@
-let upButton = document.getElementById("btn-scroll-up");
+const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svgElement.setAttribute('class', 'icon-scroll-up');
+svgElement.setAttribute('width', '24');
+svgElement.setAttribute('height', '24');
 
-window.addEventListener("scroll", scrollFunction);
+const useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+useElement.setAttribute('href', '/src/images/icons.svg#icon-scroll-up');
+svgElement.appendChild(useElement);
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    upButton.style.display = "block";
+// button
+const button = document.createElement('button');
+button.classList.add('scroll-up-button');
+button.appendChild(svgElement);
+document.body.appendChild(button);
+
+// show
+function toggleScrollButton() {
+  const scrollButton = document.querySelector('.scroll-up-button');
+  if (window.scrollY > 100) {
+    scrollButton.style.display = 'block';
   } else {
-    upButton.style.display = "none";
+    scrollButton.style.display = 'none';
   }
 }
 
-function topFunction() {
-  document.body.scrollTop = 0; 
-  document.documentElement.scrollTop = 0; 
+// scroll
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
-upButton.addEventListener("click", topFunction);
+// listener
+window.addEventListener('scroll', toggleScrollButton);
+
+//  listener and scrollToTop
+document.querySelector('.scroll-up-button').addEventListener('click', scrollToTop);

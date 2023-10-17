@@ -7,16 +7,18 @@
     right: 20px;
     background-color: #4F2EE8;
     box-shadow: 0 0 0 5px #4F2EE84D;
-    ;
     border: none;
     border-radius: 50%;
-    padding: 15px;
+    padding: 5px;
     cursor: pointer;
 }
 
 .scroll-up-button svg {
     fill: #FFFFFF;
-    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .scroll-up-button:hover {
