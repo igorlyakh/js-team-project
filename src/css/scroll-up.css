@@ -1,73 +1,24 @@
-#btn-scroll-up {
+.scroll-up-button {
     display: none;
     position: fixed;
     width: 54px;
     height: 54px;
     bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    outline: none;
+    right: 20px;
     background-color: #4F2EE8;
-    cursor: pointer;
+    box-shadow: 0 0 0 5px #4F2EE84D;
+    ;
+    border: none;
+    border-radius: 50%;
     padding: 15px;
-    border-radius: 50px;
-}
-
-/* .container-scroll {
-    position: fixed;
-    width: 64px;
-    height: 64px;
-    bottom: 20px;
-    right: 30px;
-    z-index: 0;
-    border: none;
-    outline: none;
-    background-color: rgba(79, 46, 232, 0.30);
-    border-radius: 50px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-.container-scroll .icon-arrow-back {
-    margin: 15px;
 }
 
-#btn-scroll-up {
-    display: none;
-}
-
-.container-scroll:hover {
-    background-color: #4F2EE8;
-
-}
-
-.container-scroll:hover .icon-arrow-back {
-    fill: white;
-}
-
-
-
-
-
-/* 
-#btn-scroll-up {
-    display: none;
-    position: fixed;
-    width: 54px;
-    height: 54px;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: #4F2EE8;
-    cursor: pointer;
+.scroll-up-button svg {
+    fill: #FFFFFF;
     padding: 15px;
-    border-radius: 50px;
 }
-.icon-arrow-back {
-   margin: 15px;
-} */
+
+.scroll-up-button:hover {
+    background-color: rgba(79, 46, 232, 0.7);
+}
