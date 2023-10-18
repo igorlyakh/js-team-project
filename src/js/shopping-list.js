@@ -5,6 +5,18 @@ const DATA_KEY = 'users-book';
 
 const localData = JSON.parse(localStorage.getItem(DATA_KEY));
 
+const themeSwitch = document.querySelector('.header__theme-switch-checkbox');
+const listText = document.querySelector('.shoplist-inside-text');
+function changeTextColor() {
+  if (themeSwitch.checked) {
+    listText.style.color = 'rgba(255, 255, 255, 0.60)';
+  } else {
+    listText.style.color = 'rgba(0, 0, 0, 0.6)';
+  }
+}
+themeSwitch.addEventListener('change', changeTextColor);
+changeTextColor();
+
 function createShoppingList(lists) {
   if (lists === null) return;
   const markupList = lists
