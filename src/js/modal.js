@@ -1,22 +1,36 @@
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector("[data-modal-open]"),
-    closeModalBtn: document.querySelector(".close-modal"),
-    backdrop: document.querySelector("[data-modal-backdrop]"),
-    modal: document.querySelector(".modal"),
-  };
+import axios from 'axios';
 
-  refs.openModalBtn.addEventListener("click", openModal);
-  refs.closeModalBtn.addEventListener("click", closeModal);
-  refs.backdrop.addEventListener("click", closeModal);
+const openModal = document.querySelector('.best-sellers-list');
 
-  function openModal() {
-    refs.modal.classList.remove("is-hidden");
-    refs.backdrop.classList.remove("is-hidden");
+const refs = {
+  title: document.querySelector('.book-title'),
+  author: document.querySelector('.book-author'),
+  dscr: document.querySelector('.book-description'),
+  img: document.querySelector('.book-cover'),
+};
+
+openModal.addEventListener('click', e => {
+  if (e.target.closest('li').classList.contains('book-card')) {
+    console.log(e.target.closest('li'));
+    const bookId = e.target.closest('li').dataset.id;
+    getBookById(bookId).then(res => {
+      console.log(res);
+      refs.img.setAttribute('src', res.book_image);
+      refs.title.innerHTML = res.list_name;
+      refs.author.innerHTML = res.author;
+      if (res.description.length === 0) {
+        refs.dscr.innerHTML = 'Нет описания';
+      } else {
+        refs.dscr.innerHTML = res.description;
+      }
+    });
   }
+});
 
-  function closeModal() {
-    refs.modal.classList.add("is-hidden");
-    refs.backdrop.classList.add("is-hidden");
-  }
-})();
+async function getBookById(id) {
+  const data = await axios.get(
+    `https://books-backend.p.goit.global/books/${id}`
+  );
+  const res = await data.data;
+  return res;
+}
