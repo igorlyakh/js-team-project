@@ -5,6 +5,7 @@
 @import './modal.css';
 @import './shopping-list.css';
 @import './widget.css';
+@import './scroll-up.css';
 
 body {
   font-family: DM Sans;
