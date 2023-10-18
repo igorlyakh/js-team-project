@@ -109,49 +109,49 @@ getBestSellersBooks();
 
   // Function for the list of BOOKS of each category BY BUTTON
 
-  async function getBooksListByBtn(event) {
-    event.preventDefault();
-    try {
-      const currentCategory = event.currentTarget.id;
-      const categories = categoryList.children;
-      for (const category of categories) {
-        category.removeAttribute('style');
-        if (category.textContent.trim() === currentCategory.trim()) {
-          selectedStyle(category);
-          const theme = localStorage.getItem('theme');
-          if (theme === 'dark') {
-            selectedStyleBlack(category);
-          }
-        }
-      }
+//   async function getBooksListByBtn(event) {
+//     event.preventDefault();
+//     try {
+//       const currentCategory = event.currentTarget.id;
+//       const categories = categoryList.children;
+//       for (const category of categories) {
+//         category.removeAttribute('style');
+//         if (category.textContent.trim() === currentCategory.trim()) {
+//           selectedStyle(category);
+//           const theme = localStorage.getItem('theme');
+//           if (theme === 'dark') {
+//             selectedStyleBlack(category);
+//           }
+//         }
+//       }
 
-      const { data } = await axios.get(
-        `${URL}/books/category?category=${currentCategory}`
-      );
-      bestSellers.style.display = 'none';
-      booksListContainer.innerHTML = '';
+//       const { data } = await axios.get(
+//         `${URL}/books/category?category=${currentCategory}`
+//       );
+//       bestSellers.style.display = 'none';
+//       booksListContainer.innerHTML = '';
 
-      const arrFromTitle = currentCategory.trim().split(' ');
-      const lastWordOfTitle = arrFromTitle.pop();
-      booksListContainer.insertAdjacentHTML(
-        'afterbegin',
-        `<h1 class="title">${arrFromTitle.join(
-          ' '
-        )} <span class="title-accent">${lastWordOfTitle}</span></h1>
-      <ul class="books-list"></ul>`
-      );
-      const booksList = document.querySelector('.books-list');
-      booksList.insertAdjacentHTML('beforeend', createBooksListMarkup(data));
-      window.scrollTo(0, 0);
+//       const arrFromTitle = currentCategory.trim().split(' ');
+//       const lastWordOfTitle = arrFromTitle.pop();
+//       booksListContainer.insertAdjacentHTML(
+//         'afterbegin',
+//         `<h1 class="title">${arrFromTitle.join(
+//           ' '
+//         )} <span class="title-accent">${lastWordOfTitle}</span></h1>
+//       <ul class="books-list"></ul>`
+//       );
+//       const booksList = document.querySelector('.books-list');
+//       booksList.insertAdjacentHTML('beforeend', createBooksListMarkup(data));
+//       window.scrollTo(0, 0);
 
-    if (mediaTablet.matches === true || mediaDesktop.matches === true) {
-      booksList.className = 'books-list-tab-desk';
-    }
-  } catch (err) {
-    console.log('TRY-CATCH:', err);
-    Notiflix.Notify.failure('This page is empty, please try again');
-  }
-}
+//     if (mediaTablet.matches === true || mediaDesktop.matches === true) {
+//       booksList.className = 'books-list-tab-desk';
+//     }
+//   } catch (err) {
+//     console.log('TRY-CATCH:', err);
+//     Notiflix.Notify.failure('This page is empty, please try again');
+//   }
+// }
 
   // Functions for creating MARKUPS
 
