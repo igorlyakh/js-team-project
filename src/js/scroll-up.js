@@ -17,7 +17,7 @@ button.appendChild(svgElement);
 function toggleScrollButton() {
   const scrollButton = document.querySelector('.scroll-up-button');
   if (window.scrollY > 100) {
-    scrollButton.style.display = 'block';
+    scrollButton.style.display = 'flex';
   } else {
     scrollButton.style.display = 'none';
   }
