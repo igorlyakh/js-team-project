@@ -29,20 +29,14 @@ if (path[path.length - 1] === '') {
       const theme = localStorage.getItem('theme');
       for (const child of categoryList.children) {
         child.removeAttribute('style');
-        if (theme === 'dark') {
-          child.classList.add('category-black');
-        }
-        selectedStyle(allCategories);
-        if (theme === 'dark') {
-          selectedStyleBlack(allCategories);
-        }
       }
-    } catch (err) {
-      console.log('TRY-CATCH:', err);
-      Notiflix.Notify.failure('This page is empty, please try again');
-    }
+    selectedStyle(allCategories);
+  } catch (err) {
+    console.log('TRY-CATCH:', err);
+    Notiflix.Notify.failure('This page is empty, please try again');
   }
-  getCategoryList();
+}
+getCategoryList();
 
   // Function for the list of BEST SELLERS BOOKS
   allCategories.addEventListener('click', getBestSellersBooks);
@@ -57,20 +51,16 @@ if (path[path.length - 1] === '') {
         createBestSellersMarkup(data)
       );
 
-      for (const child of bestSellersList.children) {
-        const btn = child.lastElementChild;
-        btn.addEventListener('click', getBooksListByBtn);
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          btn.style.backgroundColor = '#202024';
-        }
-      }
-    } catch (err) {
-      console.log('TRY-CATCH:', err);
-      Notiflix.Notify.failure('This page is empty, please try again');
+    for (const child of bestSellersList.children) {
+      const btn = child.lastElementChild;
+      btn.addEventListener('click', getBooksListByBtn);
     }
+  } catch (err) {
+    console.log('TRY-CATCH:', err);
+    Notiflix.Notify.failure('This page is empty, please try again');
   }
-  getBestSellersBooks();
+}
+getBestSellersBooks();
 
   // Function for the list of BOOKS of each CATEGORY
 
@@ -108,14 +98,14 @@ if (path[path.length - 1] === '') {
       const booksList = document.querySelector('.books-list');
       booksList.insertAdjacentHTML('beforeend', createBooksListMarkup(data));
 
-      if (mediaTablet.matches === true || mediaDesktop.matches === true) {
-        booksList.className = 'books-list-tab-desk';
-      }
-    } catch (err) {
-      console.log('TRY-CATCH:', err);
-      Notiflix.Notify.failure('This page is empty, please try again');
+    if (mediaTablet.matches === true || mediaDesktop.matches === true) {
+      booksList.className = 'books-list-tab-desk';
     }
+  } catch (err) {
+    console.log('TRY-CATCH:', err);
+    Notiflix.Notify.failure('This page is empty, please try again');
   }
+}
 
   // Function for the list of BOOKS of each category BY BUTTON
 
@@ -154,14 +144,14 @@ if (path[path.length - 1] === '') {
       booksList.insertAdjacentHTML('beforeend', createBooksListMarkup(data));
       window.scrollTo(0, 0);
 
-      if (mediaTablet.matches === true || mediaDesktop.matches === true) {
-        booksList.className = 'books-list-tab-desk';
-      }
-    } catch (err) {
-      console.log('TRY-CATCH:', err);
-      Notiflix.Notify.failure('This page is empty, please try again');
+    if (mediaTablet.matches === true || mediaDesktop.matches === true) {
+      booksList.className = 'books-list-tab-desk';
     }
+  } catch (err) {
+    console.log('TRY-CATCH:', err);
+    Notiflix.Notify.failure('This page is empty, please try again');
   }
+}
 
   // Functions for creating MARKUPS
 
@@ -175,112 +165,125 @@ if (path[path.length - 1] === '') {
       .join('');
   }
 
-  function createBestSellersMarkup(categories) {
-    if (mediaTablet.matches === true) {
-      return categories
-        .map(
-          ({ list_name, books }) =>
-            `<li class="books-container-tab-desk"><h2 class="book-category">${list_name}</h2>
+function createBestSellersMarkup(categories) {
+  if (mediaTablet.matches === true) {
+    return categories
+      .map(
+        ({ list_name, books }) =>
+          `<li class="books-container-tab-desk"><h2 class="book-category">${list_name}</h2>
           <ul class="books-list-tab-desk">
-          <li class="book-card" data-modal-open >
+          <li class="book-card" data-id="${books[0]._id}><div data-modal> 
     <img class="book-image" width="218" height="316" src="${books[0].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[0].title}</h3>
     <p class="book-author">${books[0].author}</p>
+    </div>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card"  data-id="${books[1]._id}><div data-modal>  
     <img class="book-image" width="218" height="316" src="${books[1].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[1].title}</h3>
     <p class="book-author">${books[1].author}</p>
+    </div>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card" data-id='${books[2]._id}><div data-modal> 
     <img class="book-image" width="218" height="316" src="${books[2].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[2].title}</h3>
     <p class="book-author">${books[2].author}</p>
+    </div>
+
     </li></ul>
     <button class="see-more-btn" id="${list_name}" type="button">See more</button></li>`
-        )
-        .join('');
-    } else if (mediaDesktop.matches === true) {
-      return categories
-        .map(
-          ({ list_name, books }) =>
-            `<li class="books-container-tab-desk"><h2 class="book-category">${list_name}</h2>
+      )
+      .join('');
+  } else if (mediaDesktop.matches === true) {
+    return categories
+      .map(
+        ({ list_name, books }) =>
+          `<li class="books-container-tab-desk"><h2 class="book-category">${list_name}</h2>
           <ul class="books-list-tab-desk">
-          <li class="book-card" data-modal-open data-id="${books[0]._id}">
+          <li class="book-card"  data-id='${books[0]._id}><div data-modal> 
     <img class="book-image" width="180" height="256" src="${books[0].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[0].title}</h3>
     <p class="book-author">${books[0].author}</p>
+    </div>
     </li>
-    <li class="book-card" data-modal-open data-id="${books[1]._id}">
+    <li class="book-card" data-id='${books[1]._id}><div data-modal> 
     <img class="book-image" width="180" height="256" src="${books[1].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[1].title}</h3>
     <p class="book-author">${books[1].author}</p>
+    </div>
     </li>
-    <li class="book-card" data-modal-open data-id="${books[2]._id}">
+    <li class="book-card"  data-id='${books[2]._id}><div data-modal> 
     <img class="book-image" width="180" height="256" src="${books[2].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[2].title}</h3>
     <p class="book-author">${books[2].author}</p>
+    </div>
     </li>
-    <li class="book-card" data-modal-open data-id="${books[3]._id}">
+    <li class="book-card" data-id='${books[3]._id}><div data-modal> 
     <img class="book-image" width="180" height="256" src="${books[3].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[3].title}</h3>
     <p class="book-author">${books[3].author}</p>
+    </div>
     </li>
-    <li class="book-card" data-modal-open data-id="${books[4]._id}">
+    <li class="book-card" data-id='${books[4]._id}><div data-modal> 
     <img class="book-image" width="180" height="256" src="${books[4].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[4].title}</h3>
     <p class="book-author">${books[4].author}</p>
+    </div>
     </li></ul>
     <button class="see-more-btn" id="${list_name}" type="button">See more</button></li>`
-        )
-        .join('');
-    } else {
-      return categories
-        .map(
-          ({ list_name, books }) =>
-            `<li class="book-card" data-modal-open>
+      )
+      .join('');
+  } else {
+    return categories
+      .map(
+        ({ list_name, books }) =>
+          `<li class="book-card" data-id='${books[0]._id}><div data-modal> 
     <h2 class="book-category">${list_name}</h2>
     <img class="book-image" width="335" height="485" src="${books[0].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[0].title}</h3>
     <p class="book-author">${books[0].author}</p>
     <button class="see-more-btn" id="${list_name}" type="button">See more</button>
+    </div>
     </li>`
         )
         .join('');
     }
   }
 
-  function createBooksListMarkup(books) {
-    if (mediaDesktop.matches === true) {
-      return books
-        .map(
-          ({ book_image, title, author }) =>
-            `<li class="book-card" data-modal-open>
+function createBooksListMarkup(books) {
+  if (mediaDesktop.matches === true) {
+    return books
+      .map(
+        ({ book_image, title, author }) =>
+          `<li class="book-card" data-id='${book._id}> <div data-modal> 
     <img class="book-image" width="180" height="256" src="${book_image}" alt="${title} book cover" />
     <h2 class="book-name">${title}</h2>
     <p class="book-author">${author}</p>
+    </div>
     </li>`
-        )
-        .join('');
-    } else if (mediaTablet.matches === true) {
-      return books
-        .map(
-          ({ book_image, title, author }) =>
-            `<li class="book-card" data-modal-open>
+      )
+      .join('');
+  } else if (mediaTablet.matches === true) {
+    return books
+      .map(
+        ({ book_image, title, author }) =>
+          `<li class="book-card" data-id='${book._id}><div data-modal> 
 <img class="book-image" width="218" height="316" src="${book_image}" alt="${title} book cover" />
 <h2 class="book-name">${title}</h2>
 <p class="book-author">${author}</p>
+</div>
 </li>`
-        )
-        .join('');
-    } else {
-      return books
-        .map(
-          ({ book_image, title, author }) =>
-            `<li class="book-card" data-modal-open>
+      )
+      .join('');
+  } else {
+    return books
+      .map(
+        ({ book_image, title, author }) =>
+          `<li class="book-card" data-id='${book._id}><div data-modal> 
     <img class="book-image" width="335" height="485" src="${book_image}" alt="${title} book cover" />
     <h2 class="book-name">${title}</h2>
     <p class="book-author">${author}</p>
+    </div> 
     </li>`
         )
         .join('');
