@@ -8,8 +8,11 @@ const openIcon = document.querySelector('.burger');
 const closeIcon = document.querySelector('.close');
 const block = document.querySelector('.shop-block');
 const moreButton = document.querySelectorAll('.see-more-btn');
+const titleList = document.querySelectorAll('h1');
+const listText = document.querySelector('.shoplist-inside-text');
 
 const categoryList = document.querySelectorAll('.category');
+
 
 // ===============Theme==================
 if (savedTheme) {
@@ -33,15 +36,20 @@ function updateTheme() {
     closeIcon.style.stroke = '#FFFFFF';
     categoryList.forEach(function (element) {
       const color = window.getComputedStyle(element).getPropertyValue('color');
-      if (color === '#4f2ee8') {
-        element.style.color = '#EAC645';
+      if (color === 'rgb(79, 46, 232)') {
+        element.style.color = 'rgb(234, 198, 69)';
       } else {
         element.style.color = 'rgba(255, 255, 255, 0.60)';
       }
     });
-    for (const button of moreButton) {
-      button.style.color = '#FFF';
+    for (const moreBtn of moreButton) {
+      moreBtn.style.color = '#FFF';
+      moreBtn.style.backgroundColor = 'rgba(0, 0, 0, 0)';
     }
+    for (const title of titleList) {
+      title.style.color = '#FFF';
+    }
+    //listText.style.color = 'rgba(255, 255, 255, 0.60)';
   } else {
     border.style.border = '2px solid black';
     border.style.borderRadius = '0 0 15px 15px';
@@ -57,15 +65,20 @@ function updateTheme() {
     closeIcon.style.stroke = '#111111';
     categoryList.forEach(function (element) {
       const color = window.getComputedStyle(element).getPropertyValue('color');
-      if (color === '#EAC645') {
-        element.style.color = '#4f2ee8';
+      if (color === 'rgb(234, 198, 69)') {
+        element.style.color = 'rgb(79, 46, 232)';
       } else {
         element.style.color = 'rgba(17, 17, 17, 0.60)';
       }
     });
-    for (const button of moreButton) {
-      button.style.color = '#111';
+    for (const moreBtn of moreButton) {
+      moreBtn.style.color = '#111';
+      moreBtn.style.backgroundColor = 'white';
     }
+    for (const title of titleList) {
+      title.style.color = '#111';
+    }
+    //listText.style.color = 'rgba(0, 0, 0, 0.6)';
   }
 }
 
@@ -115,12 +128,12 @@ links.forEach(function (link) {
   if (currentPage.indexOf('list') !== -1) {
     listHeader.classList.add('active');
     listModal.classList.add('active');
-    index.classList.remove('.active');
-    indexModal.classList.remove('.active');
+    index.classList.remove('active');
+    indexModal.classList.remove('active');
   } else {
     listHeader.classList.remove('active');
     listModal.classList.remove('active');
-    index.classList.add('.active');
-    indexModal.classList.add('.active');
+    index.classList.add('active');
+    indexModal.classList.add('active');
   }
 });
