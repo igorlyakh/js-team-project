@@ -1,5 +1,7 @@
 const shoppingBooks = document.querySelector('.shoplist-list');
 const shopListInside = document.querySelector('.shoplist-inside');
+const themeSwitch = document.querySelector('.header__theme-switch-checkbox');
+const listText = document.querySelector('.shoplist-inside-text');
 
 const DATA_KEY = 'users-book';
 
@@ -69,3 +71,12 @@ function deletedShoppingList(event) {
     }
 }
 
+function changeTextColor() {
+  if (themeSwitch.checked) {
+    listText.style.color = 'rgba(255, 255, 255, 0.60)';
+  } else {
+    listText.style.color = 'rgba(0, 0, 0, 0.6)';
+  }
+}
+themeSwitch.addEventListener('change', changeTextColor);
+changeTextColor();
