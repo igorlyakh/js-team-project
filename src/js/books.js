@@ -182,17 +182,17 @@ if (path[path.length - 1] === '') {
           ({ list_name, books }) =>
             `<li class="books-container-tab-desk"><h2 class="book-category">${list_name}</h2>
           <ul class="books-list-tab-desk">
-          <li class="book-card" data-modal-open>
+          <li class="book-card" data-id="${books[0]._id}">
     <img class="book-image" width="218" height="316" src="${books[0].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[0].title}</h3>
     <p class="book-author">${books[0].author}</p>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card" data-id="${books[1]._id}">
     <img class="book-image" width="218" height="316" src="${books[1].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[1].title}</h3>
     <p class="book-author">${books[1].author}</p>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card" data-id="${books[2]._id}">
     <img class="book-image" width="218" height="316" src="${books[2].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[2].title}</h3>
     <p class="book-author">${books[2].author}</p>
@@ -206,27 +206,27 @@ if (path[path.length - 1] === '') {
           ({ list_name, books }) =>
             `<li class="books-container-tab-desk"><h2 class="book-category">${list_name}</h2>
           <ul class="books-list-tab-desk">
-          <li class="book-card" data-modal-open>
+          <li class="book-card" data-id="${books[0]._id}">
     <img class="book-image" width="180" height="256" src="${books[0].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[0].title}</h3>
     <p class="book-author">${books[0].author}</p>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card" data-id="${books[1]._id}">
     <img class="book-image" width="180" height="256" src="${books[1].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[1].title}</h3>
     <p class="book-author">${books[1].author}</p>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card" data-id="${books[2]._id}">
     <img class="book-image" width="180" height="256" src="${books[2].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[2].title}</h3>
     <p class="book-author">${books[2].author}</p>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card" data-id="${books[3]._id}">
     <img class="book-image" width="180" height="256" src="${books[3].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[3].title}</h3>
     <p class="book-author">${books[3].author}</p>
     </li>
-    <li class="book-card" data-modal-open>
+    <li class="book-card" data-id="${books[4]._id}">
     <img class="book-image" width="180" height="256" src="${books[4].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[4].title}</h3>
     <p class="book-author">${books[4].author}</p>
@@ -238,7 +238,7 @@ if (path[path.length - 1] === '') {
       return categories
         .map(
           ({ list_name, books }) =>
-            `<li class="book-card" data-modal-open>
+            `<li class="book-card" data-id="${books[0]._id}">
     <h2 class="book-category">${list_name}</h2>
     <img class="book-image" width="335" height="485" src="${books[0].book_image}" alt="${books[0].title} book cover" />
     <h3 class="book-name">${books[0].title}</h3>
@@ -254,8 +254,8 @@ if (path[path.length - 1] === '') {
     if (mediaDesktop.matches === true) {
       return books
         .map(
-          ({ book_image, title, author }) =>
-            `<li class="book-card" data-modal-open>
+          ({ _id, book_image, title, author }) =>
+            `<li class="book-card" data-id="${_id}">
     <img class="book-image" width="180" height="256" src="${book_image}" alt="${title} book cover" />
     <h2 class="book-name">${title}</h2>
     <p class="book-author">${author}</p>
@@ -265,8 +265,8 @@ if (path[path.length - 1] === '') {
     } else if (mediaTablet.matches === true) {
       return books
         .map(
-          ({ book_image, title, author }) =>
-            `<li class="book-card" data-modal-open>
+          ({ _id, book_image, title, author }) =>
+            `<li class="book-card" data-id="${_id}">
 <img class="book-image" width="218" height="316" src="${book_image}" alt="${title} book cover" />
 <h2 class="book-name">${title}</h2>
 <p class="book-author">${author}</p>
@@ -276,8 +276,8 @@ if (path[path.length - 1] === '') {
     } else {
       return books
         .map(
-          ({ book_image, title, author }) =>
-            `<li class="book-card" data-modal-open>
+          ({ _id, book_image, title, author }) =>
+            `<li class="book-card" data-id="${_id}">
     <img class="book-image" width="335" height="485" src="${book_image}" alt="${title} book cover" />
     <h2 class="book-name">${title}</h2>
     <p class="book-author">${author}</p>
