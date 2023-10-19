@@ -113,6 +113,11 @@ li {
   line-height: 1.19;
   letter-spacing: -1.28px;
 }
+
+.title__dark {
+  color: #fff;
+}
+
 @media screen and (min-width: 768px) {
   .title {
     font-size: 48px;

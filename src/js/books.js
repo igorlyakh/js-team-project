@@ -9,6 +9,7 @@ if (path[path.length - 1] === '') {
   const bestSellers = document.querySelector('.best-sellers');
   const bestSellersList = document.querySelector('.best-sellers-list');
   const booksListContainer = document.querySelector('.books-list-container');
+  const themeSwitch = document.querySelector('.header__theme-switch-checkbox');
   const mediaTablet = window.matchMedia(
     '(min-width: 768px) and (max-width: 1280px)'
   );
@@ -29,12 +30,25 @@ if (path[path.length - 1] === '') {
       const theme = localStorage.getItem('theme');
       for (const child of categoryList.children) {
         child.removeAttribute('style');
+        themeSwitch.addEventListener('change', () => {
+          if (themeSwitch.checked) {
+            selectedStyleBlack(allCategories);
+            child.classList.add('category-black');
+          } else {
+            selectedStyle(allCategories);
+            child.classList.remove('category-black');
+          }
+        });
         if (theme === 'dark') {
           child.classList.add('category-black');
+        } else {
+          child.classList.remove('category-black');
         }
         selectedStyle(allCategories);
         if (theme === 'dark') {
           selectedStyleBlack(allCategories);
+        } else {
+          selectedStyle(allCategories);
         }
       }
     } catch (err) {
@@ -61,8 +75,18 @@ if (path[path.length - 1] === '') {
         const btn = child.lastElementChild;
         btn.addEventListener('click', getBooksListByBtn);
         const theme = localStorage.getItem('theme');
+        themeSwitch.addEventListener('change', () => {
+          if (themeSwitch.checked) {
+            btn.style.backgroundColor = '#202024';
+            btn.style.color = '#ffffff';
+          } else {
+            btn.style.backgroundColor = '#ffffff';
+            btn.style.color = '#202024';
+          }
+        });
         if (theme === 'dark') {
           btn.style.backgroundColor = '#202024';
+          btn.style.color = '#ffffff';
         }
       }
     } catch (err) {
@@ -89,6 +113,14 @@ if (path[path.length - 1] === '') {
         selectedStyleBlack(category);
       }
 
+      themeSwitch.addEventListener('change', () => {
+        if (themeSwitch.checked) {
+          selectedStyleBlack(category);
+        } else {
+          selectedStyle(category);
+        }
+      });
+
       const { data } = await axios.get(
         `${URL}/books/category?category=${category.textContent}`
       );
@@ -97,13 +129,32 @@ if (path[path.length - 1] === '') {
 
       const arrFromTitle = category.textContent.trim().split(' ');
       const lastWordOfTitle = arrFromTitle.pop();
-      booksListContainer.insertAdjacentHTML(
-        'afterbegin',
-        `<h1 class="title">${arrFromTitle.join(
-          ' '
-        )} <span class="title-accent">${lastWordOfTitle}</span></h1>
+      if (theme === 'dark') {
+        booksListContainer.insertAdjacentHTML(
+          'afterbegin',
+          `<h1 class="title title__dark">${arrFromTitle.join(
+            ' '
+          )} <span class="title-accent">${lastWordOfTitle}</span></h1>
         <ul class="books-list"></ul>`
-      );
+        );
+      } else {
+        booksListContainer.insertAdjacentHTML(
+          'afterbegin',
+          `<h1 class="title">${arrFromTitle.join(
+            ' '
+          )} <span class="title-accent">${lastWordOfTitle}</span></h1>
+        <ul class="books-list"></ul>`
+        );
+      }
+
+      themeSwitch.addEventListener('change', () => {
+        const myTitle = document.querySelector('.title');
+        if (themeSwitch.checked) {
+          myTitle.classList.add('title__dark');
+        } else {
+          myTitle.classList.remove('title__dark');
+        }
+      });
 
       const booksList = document.querySelector('.books-list');
       booksList.insertAdjacentHTML('beforeend', createBooksListMarkup(data));
@@ -128,9 +179,18 @@ if (path[path.length - 1] === '') {
         category.removeAttribute('style');
         if (category.textContent.trim() === currentCategory.trim()) {
           selectedStyle(category);
+          themeSwitch.addEventListener('change', () => {
+            if (themeSwitch.checked) {
+              selectedStyleBlack(category);
+            } else {
+              selectedStyle(category);
+            }
+          });
           const theme = localStorage.getItem('theme');
           if (theme === 'dark') {
             selectedStyleBlack(category);
+          } else {
+            selectedStyle(category);
           }
         }
       }
@@ -143,13 +203,31 @@ if (path[path.length - 1] === '') {
 
       const arrFromTitle = currentCategory.trim().split(' ');
       const lastWordOfTitle = arrFromTitle.pop();
-      booksListContainer.insertAdjacentHTML(
-        'afterbegin',
-        `<h1 class="title">${arrFromTitle.join(
-          ' '
-        )} <span class="title-accent">${lastWordOfTitle}</span></h1>
+      if (theme === 'dark') {
+        booksListContainer.insertAdjacentHTML(
+          'afterbegin',
+          `<h1 class="title title__dark">${arrFromTitle.join(
+            ' '
+          )} <span class="title-accent">${lastWordOfTitle}</span></h1>
       <ul class="books-list"></ul>`
-      );
+        );
+      } else {
+        booksListContainer.insertAdjacentHTML(
+          'afterbegin',
+          `<h1 class="title">${arrFromTitle.join(
+            ' '
+          )} <span class="title-accent">${lastWordOfTitle}</span></h1>
+      <ul class="books-list"></ul>`
+        );
+      }
+      themeSwitch.addEventListener('change', () => {
+        const myTitle = document.querySelector('.title');
+        if (themeSwitch.checked) {
+          myTitle.classList.add('title__dark');
+        } else {
+          myTitle.classList.remove('title__dark');
+        }
+      });
       const booksList = document.querySelector('.books-list');
       booksList.insertAdjacentHTML('beforeend', createBooksListMarkup(data));
       window.scrollTo(0, 0);
