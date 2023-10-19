@@ -29,35 +29,83 @@ if (path[path.length - 1] === 'shopping-list.html') {
                     </svg>
                 </button> 
 
-                    <img class="book-cover" src="${book.book_image}" alt="${book.title}" />
+                    <img class="book-img" src="${book.book_image}" alt="${
+          book.title
+        }" />
 
                 <div class="info-list">
                     <h2 class="title-book">${book.title}</h2>
                     <p class="title-names">${book.list_name}</p>
-                    <p class="description js-description">${book.description}</p>
+                    <p class="description js-description">${
+                      book.description
+                    }</p>
                     <p class="book-author">${book.author}</p>
 
                     <div class="book-link">
-                        <a class="amazon-icon" href="${book.buy_links[0].url}" target="_blank" rel="noopener noreferrer nofollow">
+                        <a class="amazon-icon" href="${
+                          book.buy_links[0].url
+                        }" target="_blank" rel="noopener noreferrer nofollow">
                             <picture class="amazon-logo">
-              <source srcset="./img/shopping-list/amazon.png 1x, ./img/shopping-list/amazon@2x.png 2x" media="(min-width: 1440px)" />
+              <source srcset="${
+                new URL('../img/shopping-list/amazon.png', import.meta.url).href
+              } 1x, ${
+          new URL('../img/shopping-list/amazon@2x.png', import.meta.url).href
+        } 2x" media="(min-width: 1440px)" />
 
-              <source srcset="./img/shopping-list/tablet/amazon.png 1x, ./img/shopping-list/tablet/amazon@2x.png 2x" media="(min-width: 768px)" />
+              <source srcset="${
+                new URL(
+                  '../img/shopping-list/tablet/amazon.png',
+                  import.meta.url
+                ).href
+              } 1x, ${
+          new URL('./img/shopping-list/tablet/amazon@2x.png', import.meta.url)
+            .href
+        } 2x" media="(min-width: 768px)" />
 
-              <source srcset="./img/shopping-list/mobile/amazon.png 1x, ./img/shopping-list/mobile/amazon@2x.png 2x" media="(max-width: 767px)" />
+              <source srcset="${
+                new URL(
+                  '../img/shopping-list/mobile/amazon.png',
+                  import.meta.url
+                ).href
+              } 1x, ${
+          new URL('../img/shopping-list/mobile/amazon@2x.png', import.meta.url)
+            .href
+        } 2x" media="(max-width: 767px)" />
 
-              <img class="amazon-logo" src="./img/mobile/amazon.png" alt="books" />
+              <img class="amazon-logo" src="${
+                new URL('../img/mobile/amazon.png', import.meta.url).href
+              }" alt="books" />
             </picture>          
                         </a>
-                        <a class="apple-icon" href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer nofollow">
+                        <a class="apple-icon" href="${
+                          book.buy_links[1].url
+                        }" target="_blank" rel="noopener noreferrer nofollow">
                             <picture class="apple-logo">
-              <source srcset="./img/shopping-list/book.png 1x, ./img/shopping-list/book@2x.png 2x" media="(min-width: 1440px)" />
+              <source srcset="${
+                new URL('../img/shopping-list/book.png', import.meta.url).href
+              } 1x, ${
+          new URL('../img/shopping-list/book@2x.png', import.meta.url).href
+        } 2x" media="(min-width: 1440px)" />
 
-              <source srcset="./img/shopping-list/tablet/book.png 1x, ./img/shopping-list/tablet/book@2x.png 2x" media="(min-width: 768px)" />
+              <source srcset="${
+                new URL('../img/shopping-list/tablet/book.png', import.meta.url)
+                  .href
+              } 1x, ${
+          new URL('../img/shopping-list/tablet/book@2x.png', import.meta.url)
+            .href
+        } 2x" media="(min-width: 768px)" />
 
-              <source srcset="./img/shopping-list/mobile/book.png 1x, ./img/shopping-list/mobile/book@2x.png 2x" media="(max-width: 767px)" />
+              <source srcset="${
+                new URL('../img/shopping-list/mobile/book.png', import.meta.url)
+                  .href
+              } 1x, ${
+          new URL('../img/shopping-list/mobile/book@2x.png', import.meta.url)
+            .href
+        } 2x" media="(max-width: 767px)" />
 
-              <img class="apple-logo" src="./img/mobile/book.png" alt="books" />
+              <img class="apple-logo" src="${
+                new URL('../img/mobile/book.png', import.meta.url).href
+              }" alt="books" />
             </picture>                
                         </a>
                     </div>

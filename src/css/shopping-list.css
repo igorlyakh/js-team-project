@@ -20,7 +20,7 @@
   display: none;
 }
 
-.book-cover {
+.book-img {
   display: block;
   width: 100px;
   height: 142px;
@@ -263,7 +263,7 @@
     height: 53px;
   }
 
-  .book-cover {
+  .book-img {
     width: 116px;
     height: 165px;
   }
