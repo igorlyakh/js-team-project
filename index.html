@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
     
-    <script type="module" crossorigin src="/js-team-project/assets/scroll-up-d4e8e6e4.js"></script>
-    <link rel="stylesheet" href="/js-team-project/assets/scroll-up-0a0f3a74.css">
+    <script type="module" crossorigin src="/js-team-project/assets/scroll-up-437f06a2.js"></script>
+    <link rel="stylesheet" href="/js-team-project/assets/scroll-up-7c8a7c5b.css">
   </head>
   <body>
     <div class="border">
@@ -96,33 +96,69 @@
   </svg>
 </button>
 
-    <!-- <div data-modal-backdrop class="modal-backdrop is-hidden"></div>
-<div class="modal">
-  <div class="flex-modal">
-    <span class="close-modal" title="Close">&times;</span>
-    <div class="img">
-      <img class="book-cover" src="book-cover.jpg" alt="Book Cover" />
-    </div>
-    <div class="modal-texts">
+    <div data-modal-backdrop class="modal-backdrop">
+  <div class="modal">
+    <div class="flex-modal">
+      <span class="close-button" title="Close">
+        <svg width="24" height="24" fill="black">
+          <use xlink:href="#icon-x-close"></use>
+        </svg>
+      </span>
+
+      <div class="img">
+        <img
+          class="book-cover"
+          src="book-cover.jpg"
+          alt="Book Cover"
+          width="287"
+          height="408"
+        />
+      </div>
+
       <h2 class="book-title">Book Title</h2>
       <p class="book-author">Author</p>
       <p class="book-description">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, magni
         repellat nemo perferendis nulla
       </p>
+
       <div class="marketplaces">
-        <a href="marketplace1.com" target="_blank"
-          ><img src="marketplace1-logo.png" alt="Marketplace 1"
-        /></a>
-        <a href="marketplace2.com" target="_blank"
-          ><img src="marketplace2-logo.png" alt="Marketplace 2"
-        /></a>
+        <a href="${res.buy_links[0].url}" target="_blank">
+          <picture>
+            <img
+              src="../img/modal/amazon.png"
+              alt="${res.buy_links[0].name}"
+              width="62"
+              height="19"
+            />
+            <img
+              src="../img/modal/amazon@2x.png"
+              alt="${res.buy_links[0].name}"
+              width="62"
+              height="19"
+            />
+          </picture>
+        </a>
+        <a href="${res.buy_links[1].url}" target="_blank">
+          <img
+            src="../img/modal/book.png"
+            alt="${res.buy_links[1].name}"
+            width="33"
+            height="32"
+          />
+          <img
+            src="../img/modal/book@2x.png"
+            alt="${res.buy_links[1].name}"
+            width="33"
+            height="32"
+          />
+        </a>
       </div>
     </div>
+    <button class="add-to-list">Add to Shopping List</button>
   </div>
-  <button class="add-to-list">Add to Shopping List</button>
 </div>
- -->
+
 
     <section></section>
 
