@@ -42,8 +42,8 @@ const charityFunds = [
   {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
-    img: new URL('/img/SupportUkraine/09-found-1.png',import.meta.url).href,
-    img2: new URL('/ima/SupportUkraine/09-found-2.png',import.meta.url).href,
+    img: new URL('/img/SupportUkraine/09-found-1.png', import.meta.url).href,
+    img2: new URL('/img/SupportUkraine/09-found-2.png', import.meta.url).href,
     width: 115,
     height: 32,
   },
@@ -51,24 +51,24 @@ const charityFunds = [
   {
     title: 'Medicins Sans Frontieres',
     url: 'https://www.msf.org/ukraine',
-    img: new URL('/img/SupportUkraine/05-found-1.png',import.meta.url).href,
-    img2: new URL('/img/SupportUkraine/05-found-2.png',import.meta.url).href,
+    img: new URL('/img/SupportUkraine/05-found-1.png', import.meta.url).href,
+    img2: new URL('/img/SupportUkraine/05-found-2.png', import.meta.url).href,
     width: 102,
     height: 32,
   },
   {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
-    img: new URL('/img/SupportUkraine/08-found-1.png',import.meta.url).href,
-    img2: new URL('/img/SupportUkraine/08-found-2.png',import.meta.url).href,
+    img: new URL('/img/SupportUkraine/08-found-1.png', import.meta.url).href,
+    img2: new URL('/img/SupportUkraine/08-found-2.png', import.meta.url).href,
     width: 81,
     height: 32,
   },
   {
     title: 'UNITED24',
     url: 'https://u24.gov.ua/uk',
-    img: new URL('/img/SupportUkraine/03-found-1.png',import.meta.url).href,
-    img2: new URL('/img/SupportUkraine/03-found-2.png',import.meta.url).href,
+    img: new URL('/img/SupportUkraine/03-found-1.png', import.meta.url).href,
+    img2: new URL('/img/SupportUkraine/03-found-2.png', import.meta.url).href,
     width: 114,
     height: 32,
   },
@@ -113,8 +113,6 @@ let numberOfClicks = Math.ceil(
     swiperOverflowContainerEl.clientHeight) /
     scrolledDistance
 );
-
-
 
 btnDownEl.addEventListener('click', onMoveDownClick);
 
