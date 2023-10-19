@@ -6,7 +6,7 @@ const DATA_KEY = 'users-book';
 
 const localData = JSON.parse(localStorage.getItem(DATA_KEY));
 
-if (path[path.length - 1] === 'shopping-list') {
+if (path[path.length - 1] === 'shopping-list.html') {
   const themeSwitch = document.querySelector('.header__theme-switch-checkbox');
   const listText = document.querySelector('.shoplist-inside-text');
   function changeTextColor() {
