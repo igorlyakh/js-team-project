@@ -21,36 +21,24 @@ if (path[path.length - 1] === 'shopping-list.html') {
   function createShoppingList(lists) {
     if (lists === null) return;
     const markupList = lists
-      .map(
-        ({
-          book_image,
-          title,
-          title_name,
-          description,
-          author,
-          buy_link,
-          buy_links,
-          _id,
-        }) => {
-          return `<li class="shopingList-item" data-id="${_id}">
+      .map(book => {
+        return `<li class="shopingList-item" data-id="${book._id}">
                 <button type="button" class="deleted-button">
                     <svg class="deleted-button-icon" width="16" height="16">
                         <use href="./img/icons.svg#shop-list-delete"></use>
                     </svg>
                 </button> 
 
-                <div class="books-img">
-                    ${book_image}
-                </div>
+                    <img class="book-cover" src="${book.book_image}" alt="${book.title}" />
 
                 <div class="info-list">
-                    <h2 class="title-book">${title}</h2>
-                    <p class="title-names">${title_name}</p>
-                    <p class="description js-description">${description}</p>
-                    <p class="book-author">${author}</p>
+                    <h2 class="title-book">${book.title}</h2>
+                    <p class="title-names">${book.list_name}</p>
+                    <p class="description js-description">${book.description}</p>
+                    <p class="book-author">${book.author}</p>
 
                     <div class="book-link">
-                        <a class="amazon-icon" href="${buy_link}" target="_blank" rel="noopener noreferrer nofollow">
+                        <a class="amazon-icon" href="${book.buy_links[0].url}" target="_blank" rel="noopener noreferrer nofollow">
                             <picture class="amazon-logo">
               <source srcset="./img/shopping-list/amazon.png 1x, ./img/shopping-list/amazon@2x.png 2x" media="(min-width: 1440px)" />
 
@@ -61,7 +49,7 @@ if (path[path.length - 1] === 'shopping-list.html') {
               <img class="amazon-logo" src="./img/mobile/amazon.png" alt="books" />
             </picture>          
                         </a>
-                        <a class="apple-icon" href="${buy_links}" target="_blank" rel="noopener noreferrer nofollow">
+                        <a class="apple-icon" href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer nofollow">
                             <picture class="apple-logo">
               <source srcset="./img/shopping-list/book.png 1x, ./img/shopping-list/book@2x.png 2x" media="(min-width: 1440px)" />
 
@@ -75,8 +63,7 @@ if (path[path.length - 1] === 'shopping-list.html') {
                     </div>
                 </div>
             </li>`;
-        }
-      )
+      })
       .join('');
 
     if (localData.length !== 0) {
