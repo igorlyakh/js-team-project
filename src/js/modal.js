@@ -11,6 +11,8 @@ const refs = {
   author: document.querySelector('.book-author'),
   dscr: document.querySelector('.book-description'),
   img: document.querySelector('.book-cover'),
+  amazon: document.querySelector('.amazon__link'),
+  apple: document.querySelector('.apple__link'),
 };
 
 if (path[path.length - 1] === '') {
@@ -19,6 +21,8 @@ if (path[path.length - 1] === '') {
     refs.title.innerHTML = res.title;
     refs.author.innerHTML = res.author;
     refs.dscr.innerHTML = res.description || ' ';
+    refs.amazon.setAttribute('href', res.buy_links[0].url);
+    refs.apple.setAttribute('href', res.buy_links[1].url);
     modalBackdrop.style.display = 'flex';
 
     // Check if the book is already in the shopping list
