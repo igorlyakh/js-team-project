@@ -28,7 +28,7 @@ li {
 
   overflow: auto;
   scrollbar-color: #e0e0e0 white;
-  scrollbar-width: 8px;
+  scrollbar-width: thin;
 }
 .home-categories::-webkit-scrollbar {
   width: 8px;
@@ -82,7 +82,7 @@ li {
 }
 .category-black:hover,
 :focus {
-  color: #EAC645;
+  color: #eac645;
   text-transform: uppercase;
   font-weight: 700;
 }
