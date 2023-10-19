@@ -9,6 +9,12 @@ body {
 
   background-color: white;
 }
+.home__wrapper {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
 li {
   list-style: none;
 }
@@ -44,6 +50,13 @@ li {
     max-width: 356px;
     height: 472px;
     margin-bottom: 100px;
+  }
+  .home__wrapper {
+    flex-direction: row;
+    gap: 32px;
+  }
+  .support__container {
+    height: 474px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -147,6 +160,13 @@ li {
 @media screen and (min-width: 1280px) {
   .book-card {
     flex-basis: calc((100% - 96px) / 5);
+  }
+  .home__wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+  .support__container_home {
+    margin: 0;
   }
 }
 .book-category {
