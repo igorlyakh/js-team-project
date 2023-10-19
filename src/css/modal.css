@@ -80,20 +80,49 @@
     font-weight: bold;
 }
 
-.marketplaces {
+
+.marketplaces-img {
     display: flex;
-    gap: 20px;
+     gap: 20px;
     align-items: center;
     margin-top: 14px;
 }
 
+.add-to-list {
+    white-space: nowrap;
+    /*display: flex;
+    justify-content: center;*/
+    display: block;
+    margin: 0 auto;
+    align-items: center;
+    min-width: 211px;
+
+    height: 46px;
+    background-color: transparent;
+    border-radius: 40px;
+    border: 2px solid #4f2ee8;
+    font-family: inherit;
+    color: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.14px;
+    text-transform: uppercase;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.add-to-list:hover,
+.add-to-list:focus {
+    background-color: #4f2ee8;
+    color: #fff;
+}
 @media (max-width: 768px) {
     .modal {
         border-radius: 18px;
         border: 2px solid #111;
         align-items: center;
         width: 287px;
-        /* height: 726px; */
         padding: 40px 24px;
     }
 
@@ -117,25 +146,6 @@
 
     }
 
-
-
-    .add-to-list {
-        display: block;
-        margin: 0 auto;
-        padding: 14px 23px;
-        border-radius: 40px;
-        border: 2px solid #4F2EE8;
-        background: transparent;
-        color: #111;
-        font-family: DM Sans;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 1.28;
-        letter-spacing: -0.14px;
-        text-transform: uppercase;
-        margin-top: 44px;
-    }
 }
 
 @media (min-width: 768px) {
@@ -150,6 +160,7 @@
 
     .flex-modal {
         display: flex;
+        gap: 24px;
     }
 
     .book-cover {
@@ -162,28 +173,12 @@
 
     .add-to-list {
         width: 499px;
-        height: 60px;
-        /* Set the desired height for vertical centering */
-        display: flex;
-        /* Use flexbox for centering */
-        justify-content: center;
-        /* Center horizontally */
-        align-items: center;
-        /* Center vertically */
-        margin: 0 auto;
-        border-radius: 40px;
-        border: 2px solid #4F2EE8;
-        background: transparent;
-        color: #111;
-        font-family: DM Sans;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 1.28;
-        letter-spacing: -0.14px;
-        text-transform: uppercase;
-        margin-top: 44px;
+        height: 64px;
+        font-size: 18px;
+        line-height: 1.33;
+        margin-top: 40px;
     }
+
 
     .modal-texts {
         max-width: 283px;
@@ -206,19 +201,19 @@
         letter-spacing: -0.56px;
     }
 
-        .book-description {
-            color: #111;
-            font-family: DM Sans;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 1.28;
-            margin-top: 20px;
-            margin-bottom: 0;
+    .book-description {
+        color: #111;
+        font-family: DM Sans;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.28;
+        margin-top: 20px;
+        margin-bottom: 0;
     
         }
     
-        .marketplaces {
+    .marketplaces-img {
             margin-top: 20px;
         }
     

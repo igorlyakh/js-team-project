@@ -33,20 +33,47 @@
               repellat nemo perferendis nulla
             </p>
 
-
-            <div class="marketplaces">
-              <a href="${res.buy_links[0].url}" target="_blank">
-                <picture>
-                  <img src="../img/modal/amazon.png" alt="${res.buy_links[0].name}" width="62" height="19" />
-                  <img src="../img/modal/amazon@2x.png" alt="${res.buy_links[0].name}" width="62" height="19" />
-                </picture>
-              </a>
-              <a href="${res.buy_links[1].url}" target="_blank">
-                <img src="../img/modal/book.png" alt="${res.buy_links[1].name}" width="33" height="32" />
-                <img src="../img/modal/book@2x.png" alt="${res.buy_links[1].name}" width="33" height="32" />
-              </a>
+            <div class = "marketplaces-img">
+              <picture class="marketplaces">
+                <source srcset="
+                                ./img/modal/book.png    1x,
+                                ./img/modal/book@2x.png 2x
+                              " media="(min-width: 1440px)" />
+              
+                <source srcset="
+                                ./img/modal/book.png    1x,
+                                ./img/modal/book@2x.png 2x
+                              " media="(min-width: 768px)" />
+              
+                <source srcset="
+                                ./img/modal/book.png    1x,
+                                ./img/modal/book@2x.png 2x
+                              " media="(max-width: 767px)" />
+              
+                <img class="modal-img" src="/src/img/modal/book.png" alt="${res.buy_links[1].name}" />
+              </picture>
+              
+              <picture class="marketplaces">
+                <source srcset="
+                                ./img/modal/amazon.png    1x,
+                                ./img/modal/amazon@2x.png 2x
+                              " media="(min-width: 1440px)" />
+              
+                <source srcset="
+                                ./img/modal/amazon.png    1x,
+                                ./img/modal/amazon@2x.png 2x
+                              " media="(min-width: 768px)" />
+              
+                <source srcset="
+                                ./img/modal/amazon.png    1x,
+                                ./img/modal/amazon@2x.png 2x
+                              " media="(max-width: 767px)" />
+              
+                <img class="modal-img" src="/src/img/modal/amazon.png" alt="${res.buy_links[0].name}" />
+              </picture>
             </div>
-          </div>
+            </div>
+         
         </div>
         <button class="add-to-list">Add to Shopping List</button>
       </div>
@@ -56,3 +83,4 @@
 </body>
 
 </html>
+

@@ -36,12 +36,12 @@ function openModalWithData(res) {
       // If the book is in the list, remove it
       removeBookFromList(res._id);
       addToShoppingListButton.innerHTML = 'Add to Shopping List';
-      alert('Book removed from your shopping list!');
+      
     } else {
       // If the book is not in the list, add it
       addToLocalStorage(res);
       addToShoppingListButton.innerHTML = 'Remove from Shopping List';
-      alert('Book added to your shopping list!');
+     
     }
   });
 }
