@@ -13,7 +13,6 @@ const listText = document.querySelector('.shoplist-inside-text');
 
 const categoryList = document.querySelectorAll('.category');
 
-
 // ===============Theme==================
 if (savedTheme) {
   themeSwitch.checked = savedTheme === 'dark';
@@ -94,7 +93,7 @@ const closeButton = document.querySelector('.mobile-menu-button-close');
 const modal = document.querySelector('.header-modal');
 
 function checkScreenWidth() {
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth < 768) {
     burger.style.display = 'flex';
     burger.addEventListener('click', () => {
       burger.style.display = 'none';
