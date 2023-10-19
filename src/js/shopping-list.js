@@ -1,37 +1,38 @@
 const shoppingBooks = document.querySelector('.shoplist-list');
 const shopListInside = document.querySelector('.shoplist-inside');
+const path = window.location.href.split('/');
 
 const DATA_KEY = 'users-book';
 
 const localData = JSON.parse(localStorage.getItem(DATA_KEY));
 
-const themeSwitch = document.querySelector('.header__theme-switch-checkbox');
-const listText = document.querySelector('.shoplist-inside-text');
-function changeTextColor() {
-  if (themeSwitch.checked) {
-    listText.style.color = 'rgba(255, 255, 255, 0.60)';
-  } else {
-    listText.style.color = 'rgba(0, 0, 0, 0.6)';
+if (path[path.length - 1] === 'shopping-list') {
+  const themeSwitch = document.querySelector('.header__theme-switch-checkbox');
+  const listText = document.querySelector('.shoplist-inside-text');
+  function changeTextColor() {
+    if (themeSwitch.checked) {
+      listText.style.color = 'rgba(255, 255, 255, 0.60)';
+    } else {
+      listText.style.color = 'rgba(0, 0, 0, 0.6)';
+    }
   }
-}
-themeSwitch.addEventListener('change', changeTextColor);
-changeTextColor();
-
-function createShoppingList(lists) {
-  if (lists === null) return;
-  const markupList = lists
-    .map(
-      ({
-        book_image,
-        title,
-        title_name,
-        description,
-        author,
-        buy_link,
-        buy_links,
-        _id,
-      }) => {
-        return `<li class="shopingList-item" data-id="${_id}">
+  themeSwitch.addEventListener('change', changeTextColor);
+  changeTextColor();
+  function createShoppingList(lists) {
+    if (lists === null) return;
+    const markupList = lists
+      .map(
+        ({
+          book_image,
+          title,
+          title_name,
+          description,
+          author,
+          buy_link,
+          buy_links,
+          _id,
+        }) => {
+          return `<li class="shopingList-item" data-id="${_id}">
                 <button type="button" class="deleted-button">
                     <svg class="deleted-button-icon" width="16" height="16">
                         <use href="./img/icons.svg#shop-list-delete"></use>
@@ -74,36 +75,37 @@ function createShoppingList(lists) {
                     </div>
                 </div>
             </li>`;
-      }
-    )
-    .join('');
+        }
+      )
+      .join('');
 
-  if (localData.length !== 0) {
-    shopListInside.hidden = true;
-    shoppingBooks.innerHTML = markupList;
+    if (localData.length !== 0) {
+      shopListInside.hidden = true;
+      shoppingBooks.innerHTML = markupList;
 
-    const deleteButtons = document.querySelectorAll('.deleted-button');
+      const deleteButtons = document.querySelectorAll('.deleted-button');
 
-    deleteButtons.forEach(btn => {
-      btn.addEventListener('click', deletedShoppingList);
-    });
-  } else {
-    shopListInside.hidden = false;
-    shoppingBooks.innerHTML = '  ';
+      deleteButtons.forEach(btn => {
+        btn.addEventListener('click', deletedShoppingList);
+      });
+    } else {
+      shopListInside.hidden = false;
+      shoppingBooks.innerHTML = '  ';
+    }
   }
-}
 
-createShoppingList(localData);
+  createShoppingList(localData);
 
-function deletedShoppingList(event) {
-  const bookId = event.target.closest('.shopingList-item').dataset.id;
-  const indexToDelete = localData.findIndex(book => book._id === bookId);
+  function deletedShoppingList(event) {
+    const bookId = event.target.closest('.shopingList-item').dataset.id;
+    const indexToDelete = localData.findIndex(book => book._id === bookId);
 
-  if (indexToDelete !== -1) {
-    localData.splice(indexToDelete, 1);
-    localStorage.setItem(DATA_KEY, JSON.stringify(localData));
-    createShoppingList(localData);
-  } else {
-    console.error('Книга не знайдена');
+    if (indexToDelete !== -1) {
+      localData.splice(indexToDelete, 1);
+      localStorage.setItem(DATA_KEY, JSON.stringify(localData));
+      createShoppingList(localData);
+    } else {
+      console.error('Книга не знайдена');
+    }
   }
 }
