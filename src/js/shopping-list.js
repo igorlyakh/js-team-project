@@ -58,7 +58,7 @@ if (path[path.length - 1] === 'shopping-list.html') {
                   import.meta.url
                 ).href
               } 1x, ${
-          new URL('./img/shopping-list/tablet/amazon@2x.png', import.meta.url)
+          new URL('../img/shopping-list/tablet/amazon@2x.png', import.meta.url)
             .href
         } 2x" media="(min-width: 768px)" />
 

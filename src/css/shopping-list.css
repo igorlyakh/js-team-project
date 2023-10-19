@@ -152,6 +152,7 @@
 .deleted-button-icon {
   fill: #4f2ee8;
   stroke: #fff;
+  background-image: url('../img/shopping-list/trash-03.png');
 }
 
 .apple-icon,
@@ -187,8 +188,8 @@
   (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .books-img {
-    background-image: url('../');
+  .deleted-button-icon {
+    background-image: url('../img/shopping-list/trash-03.png');
   }
 }
 

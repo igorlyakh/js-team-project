@@ -1,24 +1,30 @@
 .scroll-up-button {
-    display: none;
-    position: fixed;
-    width: 54px;
-    height: 54px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #4F2EE8;
-    box-shadow: 0 0 0 5px #4F2EE84D;
-    border: none;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  width: 54px;
+  height: 54px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f2ee8;
+  box-shadow: 0 0 0 5px #4f2ee84d;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-scroll {
+  background-image: url('../img/scroll-up/Vector.png');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .scroll-up-button svg {
-    fill: #FFFFFF;
+  fill: #ffffff;
 }
 
 .scroll-up-button:hover {
-    background-color: rgba(79, 46, 232, 0.7);
+  background-color: rgba(79, 46, 232, 0.7);
 }

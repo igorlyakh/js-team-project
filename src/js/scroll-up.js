@@ -1,17 +1,14 @@
-const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+const svgElement = document.createElement('img');
+
 svgElement.setAttribute('width', '24');
 svgElement.setAttribute('height', '24');
-
-const useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-useElement.setAttribute('href', './img/icons.svg#icon-scroll-up');
-svgElement.appendChild(useElement);
-
+svgElement.setAttribute('class', 'img-scroll');
 // button
 const button = document.createElement('button');
 button.classList.add('scroll-up-button');
 document.body.appendChild(button);
 
-button.appendChild(svgElement);  
+button.appendChild(svgElement);
 
 // show
 function toggleScrollButton() {
@@ -27,7 +24,7 @@ function toggleScrollButton() {
 function scrollToTop() {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: 'smooth',
   });
 }
 
@@ -35,4 +32,6 @@ function scrollToTop() {
 window.addEventListener('scroll', toggleScrollButton);
 
 // listener and scrollToTop
-document.querySelector('.scroll-up-button').addEventListener('click', scrollToTop);
+document
+  .querySelector('.scroll-up-button')
+  .addEventListener('click', scrollToTop);
